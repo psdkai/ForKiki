@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff7f2">
+<title>给今天的你 · 生日快乐</title>
+<style>
+  :root{
+    --ink:#453b3a; --muted:#8d7d79; --rose:#d98283; --rose-dark:#b9636b;
+    --cream:#fffaf6; --pink:#f8e7e2; --gold:#d5ad72;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; min-height:100vh; color:var(--ink);
+    font-family: "PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+    background:
+      radial-gradient(circle at 15% 12%,rgba(255,255,255,.95) 0 2px,transparent 3px),
+      radial-gradient(circle at 85% 22%,rgba(255,255,255,.8) 0 2px,transparent 3px),
+      linear-gradient(145deg,#fff7f2,#f8e9e5 55%,#f6eee7);
+    overflow-x:hidden;
+  }
+  .sparkle{position:fixed;inset:0;pointer-events:none;opacity:.55;background-image:
+    radial-gradient(#fff 1px,transparent 1.5px),radial-gradient(#e7c5b9 1px,transparent 1.5px);
+    background-size:90px 90px,130px 130px;background-position:0 0,40px 60px}
+  .wrap{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:28px 18px 54px}
+  .topline{text-align:center;color:var(--muted);font-size:12px;letter-spacing:3px;margin:12px 0 22px}
+  .card{
+    background:rgba(255,252,249,.88); border:1px solid rgba(255,255,255,.9);
+    border-radius:28px; padding:clamp(25px,6vw,52px);
+    box-shadow:0 18px 55px rgba(126,83,75,.10); backdrop-filter:blur(8px);
+    min-height:490px; display:flex; flex-direction:column; justify-content:center;
+    text-align:center; position:relative; overflow:hidden;
+  }
+  .card:before,.card:after{content:"✦";position:absolute;color:#e8c7b7;opacity:.65;font-size:20px}
+  .card:before{top:22px;left:25px}.card:after{right:25px;bottom:22px}
+  .eyebrow{font-size:12px;letter-spacing:3px;color:var(--rose-dark);margin-bottom:18px}
+  h1{font-size:clamp(32px,7vw,48px);line-height:1.25;margin:0 0 16px;font-weight:650;letter-spacing:1px}
+  h2{font-size:clamp(25px,5vw,34px);line-height:1.35;margin:0 0 18px;font-weight:650}
+  p{font-size:16px;line-height:2;color:#756561;margin:0 auto;max-width:520px}
+  .illustration{font-size:58px;margin:6px 0 20px;filter:drop-shadow(0 8px 10px rgba(180,120,110,.12))}
+  .rule{width:48px;height:2px;background:var(--gold);margin:24px auto}
+  .controls{display:flex;justify-content:center;gap:12px;margin-top:30px;flex-wrap:wrap}
+  button{
+    border:0;border-radius:999px;padding:13px 25px;font-size:15px;font-weight:600;
+    cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s;
+  }
+  button:hover{transform:translateY(-2px)}
+  .primary{color:white;background:linear-gradient(135deg,#dc9290,#c96f78);box-shadow:0 9px 20px rgba(201,111,120,.24)}
+  .secondary{color:#9a7772;background:#f7eae5}
+  .progress{display:flex;justify-content:center;gap:7px;margin:20px 0 0}
+  .dot{width:6px;height:6px;border-radius:50%;background:#e4c9c0;transition:all .25s}
+  .dot.active{width:22px;border-radius:10px;background:var(--rose)}
+  .hidden{display:none}
+  .fade{animation:fade .55s ease both}
+  @keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  .invite{
+    background:linear-gradient(155deg,#fffaf7,#fff1eb);border:1px solid #f0d9d0;
+    border-radius:22px;padding:22px 18px;margin:25px auto 0;max-width:430px;
+  }
+  .invite-label{font-size:11px;letter-spacing:3px;color:var(--rose-dark);margin-bottom:13px}
+  .date{font-size:29px;font-weight:700;color:#76524f;letter-spacing:1px}
+  .time{font-size:17px;color:#9b716c;margin-top:5px}
+  .note{font-size:13px;color:#a28e87;margin-top:12px}
+  .accept{display:inline-flex;align-items:center;gap:9px;margin-top:25px;padding:15px 34px}
+  .foot{font-size:11px;color:#b19e98;text-align:center;margin-top:20px;letter-spacing:1px}
+  .heart{display:inline-block;color:#d98283;animation:beat 1.5s infinite}
+  @keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1)}}
+  @media(max-width:480px){.card{min-height:520px;border-radius:23px}.wrap{padding:18px 13px 36px}p{font-size:15px}}
+</style>
+</head>
+<body>
+<div class="sparkle"></div>
+<main class="wrap">
+  <div class="topline">A LITTLE SURPRISE FOR YOU · 生日特别篇</div>
+  <section class="card" aria-live="polite">
+    <div id="scene" class="fade">
+      <div class="eyebrow">CHAPTER 01 · 今天是特别的一天</div>
+      <div class="illustration">🎂</div>
+      <h1>生日快乐呀！</h1>
+      <p>今天先暂停一下日常的忙碌。<br>因为有一个很重要的人，今天值得被好好庆祝。</p>
+      <div class="rule"></div>
+      <p>而我准备了一小段故事，想送给今天的你。</p>
+    </div>
+    <div class="controls">
+      <button class="primary" id="nextBtn" onclick="nextScene()">继续看看 <span>→</span></button>
+    </div>
+    <div class="progress" id="progress">
+      <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    </div>
+  </section>
+  <div class="foot">MADE WITH A LITTLE THOUGHT <span class="heart">♥</span></div>
+</main>
+<script>
+const scenes = [
+`<div class="eyebrow">CHAPTER 02 · 关于日常</div>
+ <div class="illustration">☁️</div>
+ <h2>生活其实是由很多小事组成的</h2>
+ <p>可能是分享今天遇到的趣事，<br>可能是一起吃到喜欢的东西，<br>也可能只是很普通的一天，<br>但因为有了分享的人，就变得有趣了一点。</p>
+ <div class="rule"></div><p>很高兴能参与到你的生活里。</p>`,
+`<div class="eyebrow">CHAPTER 03 · 关于以后</div>
+ <div class="illustration">🧳</div>
+ <h2>还有很多故事，等着我们去解锁</h2>
+ <p>想和你一起去没去过的地方，<br>尝试没吃过的美食，<br>偶尔安排一场小旅行，<br>也把平凡的日子过得有趣一点。</p>
+ <div class="rule"></div><p>不急着把未来计划得很满，<br>只希望接下来还有很多「一起」。</p>`,
+`<div class="eyebrow">CHAPTER 04 · 今天的下一站</div>
+ <div class="illustration">🥂</div>
+ <h2>所以，今天想先邀请你……</h2>
+ <p>把生日这一天留一点时间给我们。<br>准备了一顿晚餐，想和你一起好好庆祝，<br>顺便开启新一岁的第一段小回忆。</p>
+ <div class="invite">
+   <div class="invite-label">YOU ARE INVITED</div>
+   <div class="date">14号 · 8:00 PM</div>
+   <div class="time">一顿生日晚餐 🍽️</div>
+   <div class="note">地点与详情，点接受邀约就能看到</div>
+ </div>
+ <button class="primary accept" onclick="acceptInvite()">接受邀约 <span>♡</span></button>
+ <div class="note">期待和你一起度过这个晚上。</div>`
+];
+let current=0;
+function render(){
+ const scene=document.getElementById('scene');
+ scene.classList.remove('fade'); void scene.offsetWidth; scene.innerHTML=scenes[current]; scene.classList.add('fade');
+ document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===current));
+ const btn=document.getElementById('nextBtn');
+ btn.style.display=current===scenes.length-1?'none':'inline-block';
+ btn.textContent=current===0?'继续看看 →': '下一页 →';
+}
+function nextScene(){if(current<scenes.length-1){current++;render();}}
+function acceptInvite(){window.open('https://letsumai.com/e/ZRdf2N28eEVFbxBG','_blank','noopener,noreferrer');}
+</script>
+</body>
+</html>
